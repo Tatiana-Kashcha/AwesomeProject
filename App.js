@@ -5,20 +5,30 @@ import { StyleSheet,  TextInput, View, Text, Button } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
+    
+      <View style={styles.thumb}>
 
-      <Text style={styles.header}>Увійти</Text>
-      <TextInput style={styles.input} placeholder='Адреса електронної пошти'/>
-      <TextInput style={styles.input} />
-      <Button style={styles.button} title='Увійти'/>
-      <Text style="auto">Немає акаунту? Зареєструватися</Text>
-       <StatusBar style="auto"/>
+        <Text style={styles.header}>Увійти</Text>
+        <TextInput style={styles.input} placeholder='Адреса електронної пошти'/>
+        <TextInput style={styles.input} />
+        <Button style={styles.button} title='Увійти'/>
+        <Text style="auto">Немає акаунту? Зареєструватися</Text>
+        
+        <StatusBar style="auto"/>
 
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'flex-end',
+    borderWidth: 1,
+  },
+  thumb: {
     flex: 0.6,
     backgroundColor: '#fff',
     alignItems: 'center',
