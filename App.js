@@ -9,7 +9,7 @@ export default function App() {
       <Text style={styles.header}>Увійти</Text>
       <TextInput style={styles.input} placeholder='Адреса електронної пошти'/>
       <TextInput style={styles.input} />
-      <Button style="auto" title='Увійти'/>
+      <Button style={styles.button} title='Увійти'/>
       <Text style="auto">Немає акаунту? Зареєструватися</Text>
        <StatusBar style="auto"/>
 
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+    padding: 10,
+  },
+  button: {
+    backgroundColor: '#f6f6f6',
     padding: 10,
   },
 });
