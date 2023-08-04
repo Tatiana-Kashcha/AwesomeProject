@@ -9,9 +9,9 @@ export default function LoginScreen() {
         <Text style={gStyle.header}>Увійти</Text>
 
         <View style={gStyle.form}>
-        <TextInput style={gStyle.input} placeholder='Адреса електронної пошти'/>
-        <TextInput style={gStyle.input} placeholder='Пароль'/>
-        <Button padding= '10' borderRadius= '100' color="#FF6C00" title='Увійти'  />
+          <TextInput style={gStyle.input} placeholder='Адреса електронної пошти'/>
+          <TextInput style={gStyle.input} placeholder='Пароль'/>
+          <Button padding= '10' borderRadius= '100' color="#FF6C00" title='Увійти'  />
         </View>
         <Text style={gStyle.textDesc}>
           Немає акаунту? 
