@@ -36,6 +36,8 @@ export const gStyle = StyleSheet.create({
     
   },
   textDesc: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 16,
     color: '#1B4371',
     marginTop: 16,
   },
