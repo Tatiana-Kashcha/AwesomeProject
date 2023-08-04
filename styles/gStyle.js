@@ -19,10 +19,10 @@ export const gStyle = StyleSheet.create({
     paddingRight: 16,
   },
   header: {
-      fontFamily: 'Roboto-Medium',
-      fontSize: 30,
-      textAlign: 'center',
-      marginTop: 32,
+    fontFamily: 'Roboto-Medium',
+    fontSize: 30,
+    textAlign: 'center',
+    marginTop: 32,
   },
   form: {
     width: '100%',
