@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+// Глобальні стилі додатку
+
 export const gStyle = StyleSheet.create({
   container: { 
     flex: 1,
