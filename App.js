@@ -16,7 +16,7 @@ export default function App() {
         </View>
         <Text style={styles.textDesc}>
           Немає акаунту? 
-          <Text style={styles.textReg}>Зареєструватися</Text>
+          <Text style={styles.textReg}> Зареєструватися</Text>
         </Text>
       </View>
     </SafeAreaView>
