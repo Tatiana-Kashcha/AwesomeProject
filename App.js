@@ -71,6 +71,5 @@ const styles = StyleSheet.create({
   },
   textReg: {
     textDecorationLine: 'underline',
-    marginLeft: 4,
   }
 });
