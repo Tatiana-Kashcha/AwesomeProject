@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-// Глобальні стилі додатку
+/** Глобальні стилі додатку */
 
 export const gStyle = StyleSheet.create({
   container: { 
