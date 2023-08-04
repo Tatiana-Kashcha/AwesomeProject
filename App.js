@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 import LoginScreen from './src/components/LoginScreen';
+import { gStyle } from './styles/gStyle';
 
 export default function App() {
 
@@ -15,7 +16,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={gStyle.container}>
       <StatusBar style="auto"/>
       <LoginScreen/>
     </SafeAreaView>
@@ -23,10 +24,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'flex-end',
-    borderWidth: 1,
-  },
+  
 });
