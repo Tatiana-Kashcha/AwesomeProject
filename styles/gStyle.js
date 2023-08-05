@@ -24,6 +24,10 @@ export const gStyle = StyleSheet.create({
     textAlign: 'center',
     marginTop: 32,
   },
+  textBasic: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 16,
+  },
   form: {
     width: '100%',
     marginTop: 32,
@@ -34,12 +38,21 @@ export const gStyle = StyleSheet.create({
     width: '100%',
     borderWidth: 1,
     borderRadius: 8,
-    padding: 16,
     marginTop: 16,
+    padding: 16
+  },
+  button: {
+    paddingTop: 16,
+    paddingBottom: 16,
+    borderRadius: 100,
+    backgroundColor:"#FF6C00",
+    marginTop: 43,
+  },
+  textButton: {
+    color: "#ffffff",
+    textAlign: "center",
   },
   textDesc: {
-    fontFamily: 'Roboto-Regular',
-    fontSize: 16,
     color: '#1B4371',
     marginTop: 16,
   },
