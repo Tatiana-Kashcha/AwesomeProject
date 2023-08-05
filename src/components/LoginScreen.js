@@ -7,7 +7,7 @@ export default function LoginScreen() {
   return (
     <SafeAreaView style={gStyle.container}>
       <View style={[gStyle.thumb, styles.thumb]}>
-        <Text style={gStyle.header}>Увійти</Text>
+        <Text style={gStyle.textHeader}>Увійти</Text>
         <Formik>
           <View style={gStyle.form}>
             <TextInput style={[gStyle.input, styles.input]} placeholder='Адреса електронної пошти'/>

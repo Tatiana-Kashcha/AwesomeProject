@@ -18,7 +18,7 @@ export const gStyle = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
-  header: {
+  textHeader: {
     fontFamily: 'Roboto-Medium',
     fontSize: 30,
     textAlign: 'center',
