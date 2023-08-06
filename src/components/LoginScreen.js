@@ -18,10 +18,13 @@ export default function LoginScreen() {
         <Formik>
           <View style={gStyle.form}>
             <TextInput
-              style={[gStyle.input, styles.input]}
+              style={[gStyle.input, gStyle.textBasic, styles.input]}
               placeholder="Адреса електронної пошти"
             />
-            <TextInput style={gStyle.input} placeholder="Пароль" />
+            <TextInput
+              style={[gStyle.input, gStyle.textBasic]}
+              placeholder="Пароль"
+            />
 
             <TouchableOpacity style={gStyle.button}>
               <Text style={[gStyle.textBasic, gStyle.textButton]}>Увійти</Text>
@@ -39,8 +42,7 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   thumb: {
-    // flex: 0.6,
-    flex: 0.7,
+    flex: 0.6,
   },
   input: {
     marginTop: 0,
