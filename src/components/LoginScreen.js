@@ -1,7 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
-import { gStyle } from '../../styles/gStyle';
-import { Formik } from 'formik';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import { gStyle } from "../../styles/gStyle";
+import { Formik } from "formik";
 
 export default function LoginScreen() {
   return (
@@ -10,16 +17,19 @@ export default function LoginScreen() {
         <Text style={gStyle.textHeader}>Увійти</Text>
         <Formik>
           <View style={gStyle.form}>
-            <TextInput style={[gStyle.input, styles.input]} placeholder='Адреса електронної пошти'/>
-            <TextInput style={gStyle.input} placeholder='Пароль'/>
-            
+            <TextInput
+              style={[gStyle.input, styles.input]}
+              placeholder="Адреса електронної пошти"
+            />
+            <TextInput style={gStyle.input} placeholder="Пароль" />
+
             <TouchableOpacity style={gStyle.button}>
               <Text style={[gStyle.textBasic, gStyle.textButton]}>Увійти</Text>
             </TouchableOpacity>
           </View>
         </Formik>
         <Text style={[gStyle.textBasic, gStyle.textDesc]}>
-          Немає акаунту? 
+          Немає акаунту?
           <Text style={styles.textReg}> Зареєструватися</Text>
         </Text>
       </View>
@@ -36,6 +46,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   textReg: {
-    textDecorationLine: 'underline',
-  }
+    textDecorationLine: "underline",
+  },
 });
