@@ -15,7 +15,7 @@ export default function RegistrationScreen() {
     <SafeAreaView style={gStyle.container}>
       <View style={[gStyle.thumb, styles.thumb]}>
         <View style={styles.avatar}></View>
-        <Text style={gStyle.textHeader}>Реєстрація</Text>
+        <Text style={[gStyle.textHeader, styles.textHeader]}>Реєстрація</Text>
         <Formik>
           <View style={gStyle.form}>
             <TextInput
@@ -50,12 +50,16 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     backgroundColor: "#fff",
-    borderWidth: 1,
     borderRadius: 16,
-    bottom: 60,
+    position: "absolute",
+    bottom: "88%",
   },
   thumb: {
     flex: 0.7,
+    position: "relative",
+  },
+  textHeader: {
+    marginTop: 72,
   },
   input: {
     marginTop: 0,
