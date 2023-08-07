@@ -4,9 +4,7 @@ import { StyleSheet, View, ImageBackground } from "react-native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./src/components/LoginScreen";
 import { gStyle } from "./styles/gStyle";
-
-// const background = { uri: "./src/assets/PhotoBG.png" };
-const background = { uri: "https://legacy.reactjs.org/logo-og.png" };
+import background from "./src/assets/PhotoBG.png";
 
 export default function App() {
   const [fontsLoaded] = useFonts({

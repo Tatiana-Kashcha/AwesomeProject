@@ -10,7 +10,6 @@ export const gStyle = StyleSheet.create({
   thumb: {
     backgroundColor: "#fff",
     alignItems: "center",
-    borderWidth: 1,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingLeft: 16,
