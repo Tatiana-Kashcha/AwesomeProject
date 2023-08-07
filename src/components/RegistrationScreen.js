@@ -6,19 +6,19 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { gStyle } from "../../styles/gStyle";
 import { Formik } from "formik";
-import { Ionicons } from "@expo/vector-icons";
+
+import addIcons from "../assets/add.png";
 
 export default function RegistrationScreen() {
   return (
     <SafeAreaView style={gStyle.container}>
       <View style={[gStyle.thumb, styles.thumb]}>
         <View style={styles.avatar}>
-          <View style={styles.circle}>
-            <Ionicons name="add" size={30} style={styles.iconAdd} />
-          </View>
+          <Image source={addIcons} style={styles.iconAdd} />
         </View>
         <Text style={[gStyle.textHeader, styles.textHeader]}>Реєстрація</Text>
         <Formik>
@@ -59,21 +59,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: "88%",
   },
-  circle: {
-    flexDirection: "column",
-    borderColor: "#FF6C00",
-    width: 30,
-    height: 30,
-    borderWidth: 1,
-    borderRadius: 30,
-    justifyContent: "center",
+  iconAdd: {
+    width: 25,
+    height: 25,
     position: "absolute",
     bottom: 12,
-    right: -15,
-  },
-  iconAdd: {
-    color: "#FF6C00",
-    textAlign: "center",
+    right: -13,
   },
   thumb: {
     flex: 0.7,
