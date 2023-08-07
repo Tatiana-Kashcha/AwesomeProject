@@ -42,8 +42,7 @@ export default function RegistrationScreen() {
           </View>
         </Formik>
         <Text style={[gStyle.textBasic, gStyle.textDesc]}>
-          Немає акаунту?
-          <Text style={styles.textReg}> Зареєструватися</Text>
+          Вже є акаунт? Увійти
         </Text>
       </View>
     </SafeAreaView>
@@ -75,8 +74,5 @@ const styles = StyleSheet.create({
   },
   input: {
     marginTop: 0,
-  },
-  textReg: {
-    textDecorationLine: "underline",
   },
 });
