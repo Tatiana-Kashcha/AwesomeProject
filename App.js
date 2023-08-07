@@ -2,8 +2,7 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, ImageBackground } from "react-native";
 import { useFonts } from "expo-font";
-import LoginScreen from "./src/components/LoginScreen";
-import { gStyle } from "./styles/gStyle";
+import RegistrationScreen from "./src/components/RegistrationScreen";
 import background from "./src/assets/PhotoBG.png";
 
 export default function App() {
@@ -24,7 +23,8 @@ export default function App() {
         style={styles.background}
       >
         <StatusBar style="auto" />
-        <LoginScreen />
+        <RegistrationScreen />
+        {/* <LoginScreen /> */}
       </ImageBackground>
     </View>
   );
