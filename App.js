@@ -1,10 +1,11 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, SafeAreaView, ImageBackground } from "react-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
 import { useFonts } from "expo-font";
 import LoginScreen from "./src/components/LoginScreen";
 import { gStyle } from "./styles/gStyle";
 
+// const background = { uri: "./src/assets/PhotoBG.png" };
 const background = { uri: "https://legacy.reactjs.org/logo-og.png" };
 
 export default function App() {
@@ -18,11 +19,25 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={gStyle.container}>
-      <StatusBar style="auto" />
-      <LoginScreen />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ImageBackground
+        source={background}
+        resizeMode="cover"
+        style={styles.background}
+      >
+        <StatusBar style="auto" />
+        <LoginScreen />
+      </ImageBackground>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  background: {
+    flex: 1,
+    justifyContent: "center",
+  },
+});

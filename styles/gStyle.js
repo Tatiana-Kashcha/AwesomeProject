@@ -5,9 +5,7 @@ import { StyleSheet } from "react-native";
 export const gStyle = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     justifyContent: "flex-end",
-    borderWidth: 1,
   },
   thumb: {
     backgroundColor: "#fff",
