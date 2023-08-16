@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingHorizontal: 16,
   },
   textHeader: {
     fontFamily: "Roboto-Medium",
@@ -68,10 +67,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
     borderColor: "#E8E8E8",
     backgroundColor: "#f6f6f6",
     width: "100%",
@@ -83,8 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   button: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingVertical: 10,
     borderRadius: 100,
     backgroundColor: "#FF6C00",
     marginTop: 35,
