@@ -19,10 +19,12 @@ export default function LoginScreen() {
             <TextInput
               style={[styles.input, styles.textBasic, styles.inputFirst]}
               placeholder="Адреса електронної пошти"
+              placeholderTextColor={'#BDBDBD'}
             />
             <TextInput
               style={[styles.input, styles.textBasic]}
               placeholder="Пароль"
+              placeholderTextColor={'#BDBDBD'}
             />
 
             <TouchableOpacity style={styles.button}>
