@@ -21,7 +21,7 @@ export default function RegistrationScreen() {
         </View>
         <Text style={styles.textHeader}>Реєстрація</Text>
         <Formik>
-          <View style={styles.form} behavior="position">
+          <View style={styles.form} behavior={Platform.OS == "ios" ? "padding" : "height"}>
             <TextInput
               placeholder="Логін"
               placeholderTextColor={'#BDBDBD'}

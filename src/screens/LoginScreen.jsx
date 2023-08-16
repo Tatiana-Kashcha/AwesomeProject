@@ -17,7 +17,7 @@ export default function LoginScreen() {
       <View style={styles.thumb}>
         <Text style={styles.textHeader}>Увійти</Text>
         <Formik>
-          <View style={styles.form} behavior="position">
+          <View style={styles.form} behavior={Platform.OS == "ios" ? "padding" : "height"}>
             <TextInput
               placeholder="Адреса електронної пошти"
               placeholderTextColor={'#BDBDBD'}
