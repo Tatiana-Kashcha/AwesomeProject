@@ -44,6 +44,10 @@ export default function RegistrationScreen() {
               onBlur={() => setFocus({FocusedItem: ""})}
             />
 
+            <TouchableOpacity >
+              <Text style={[styles.textBasic, styles.textDesc, styles.toShow]}>Показати</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button}>
               <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
             </TouchableOpacity>
@@ -131,5 +135,10 @@ const styles = StyleSheet.create({
   textDesc: {
     color: "#1B4371",
     marginTop: 10,
+  },
+  toShow: {
+    position: "absolute",
+    top: -47,
+    right: 16,
   },
 });
