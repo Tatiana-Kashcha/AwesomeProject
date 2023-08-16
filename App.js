@@ -24,8 +24,8 @@ export default function App() {
         style={styles.background}
       >
         <StatusBar style="auto" />
-        <RegistrationScreen />
-        {/* <LoginScreen /> */}
+        {/* <RegistrationScreen /> */}
+        <LoginScreen />
       </ImageBackground>
     </View>
   );

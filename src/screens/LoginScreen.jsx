@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,24 +10,30 @@ import {
 import { Formik } from "formik";
 
 export default function LoginScreen() {
+  const [focus, setFocus] = useState("");
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.thumb}>
         <Text style={styles.textHeader}>Увійти</Text>
         <Formik>
           <View style={styles.form}>
-            <TextInput
-              style={[styles.input, styles.textBasic, styles.inputFirst]}
+          <TextInput
               placeholder="Адреса електронної пошти"
               placeholderTextColor={'#BDBDBD'}
+              style={[styles.input, styles.textBasic, styles.inputFirst, focus.FocusedItem === "email" ? styles.inputOnFocus : styles.inputOnBlur]}
+              onFocus={() => setFocus({FocusedItem: "email"})}
+              onBlur={() => setFocus({FocusedItem: ""})}
             />
             <TextInput
-              style={[styles.input, styles.textBasic]}
               placeholder="Пароль"
               placeholderTextColor={'#BDBDBD'}
+              style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
+              onFocus={() => setFocus({FocusedItem: "password"})}
+              onBlur={() => setFocus({FocusedItem: ""})}
             />
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => setFocus({FocusedItem: ""})}>
               <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
             </TouchableOpacity>
           </View>
@@ -71,12 +77,18 @@ const styles = StyleSheet.create({
   input: {
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderColor: "#E8E8E8",
-    backgroundColor: "#f6f6f6",
     width: "100%",
     borderWidth: 1,
     borderRadius: 10,
     marginTop: 16,
+  },
+  inputOnFocus: { 
+    backgroundColor: "#fff",
+    borderColor: '#FF6C00',
+  },
+  inputOnBlur: { 
+    backgroundColor: "#f6f6f6",
+    borderColor: '#E8E8E8' 
   },
   inputFirst: {
     marginTop: 0,
