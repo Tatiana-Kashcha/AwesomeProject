@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   thumb: {
-    flex: 0.6,
     backgroundColor: "#fff",
     alignItems: "center",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 16,
+    paddingBottom: 100,
   },
   textHeader: {
     fontFamily: "Roboto-Medium",

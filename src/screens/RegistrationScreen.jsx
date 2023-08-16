@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
     right: -13,
   },
   thumb: {
-    flex: 0.7,
     position: "relative",
     backgroundColor: "#fff",
     alignItems: "center",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 16,
+    paddingBottom: 40,
   },
   textHeader: {
     fontFamily: "Roboto-Medium",
