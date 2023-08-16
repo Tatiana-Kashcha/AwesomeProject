@@ -44,7 +44,7 @@ export default function RegistrationScreen() {
               onBlur={() => setFocus({FocusedItem: ""})}
             />
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => setFocus({FocusedItem: ""})}>
               <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
             </TouchableOpacity>
           </View>
