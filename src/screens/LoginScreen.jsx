@@ -17,8 +17,8 @@ export default function LoginScreen() {
       <View style={styles.thumb}>
         <Text style={styles.textHeader}>Увійти</Text>
         <Formik>
-          <View style={styles.form}>
-          <TextInput
+          <View style={styles.form} behavior="position">
+            <TextInput
               placeholder="Адреса електронної пошти"
               placeholderTextColor={'#BDBDBD'}
               style={[styles.input, styles.textBasic, styles.inputFirst, focus.FocusedItem === "email" ? styles.inputOnFocus : styles.inputOnBlur]}
@@ -27,6 +27,8 @@ export default function LoginScreen() {
             />
             <TextInput
               placeholder="Пароль"
+              secureTextEntry={true}
+              autoCapitalize="none"
               placeholderTextColor={'#BDBDBD'}
               style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
               onFocus={() => setFocus({FocusedItem: "password"})}

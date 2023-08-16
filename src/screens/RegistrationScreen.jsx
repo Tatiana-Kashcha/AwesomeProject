@@ -21,7 +21,7 @@ export default function RegistrationScreen() {
         </View>
         <Text style={styles.textHeader}>Реєстрація</Text>
         <Formik>
-          <View style={styles.form}>
+          <View style={styles.form} behavior="position">
             <TextInput
               placeholder="Логін"
               placeholderTextColor={'#BDBDBD'}
@@ -38,6 +38,8 @@ export default function RegistrationScreen() {
             />
             <TextInput
               placeholder="Пароль"
+              secureTextEntry={true}
+              autoCapitalize="none"
               placeholderTextColor={'#BDBDBD'}
               style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
               onFocus={() => setFocus({FocusedItem: "password"})}
