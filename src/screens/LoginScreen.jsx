@@ -33,7 +33,7 @@ export default function LoginScreen() {
               onBlur={() => setFocus({FocusedItem: ""})}
             />
 
-            <TouchableOpacity style={styles.button} onPress={() => setFocus({FocusedItem: ""})}>
+            <TouchableOpacity style={styles.button}>
               <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
             </TouchableOpacity>
           </View>
