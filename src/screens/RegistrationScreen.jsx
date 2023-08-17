@@ -12,6 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function RegistrationScreen() {
   const [focus, setFocus] = useState("");
+  const [hidePass, setHidePass] = useState(true);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -38,7 +39,7 @@ export default function RegistrationScreen() {
             />
             <TextInput
               placeholder="Пароль"
-              secureTextEntry={true}
+              secureTextEntry={hidePass ? true : false}
               autoCapitalize="none"
               placeholderTextColor={'#BDBDBD'}
               style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
@@ -47,7 +48,10 @@ export default function RegistrationScreen() {
             />
 
             <TouchableOpacity >
-              <Text style={[styles.textBasic, styles.textDesc, styles.toShow]}>Показати</Text>
+            <Text 
+              style={[styles.textBasic, styles.textDesc, styles.toShow]} 
+              onPress={() => setHidePass(!hidePass)}>Показати
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button}>
