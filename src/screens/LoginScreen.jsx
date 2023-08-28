@@ -75,24 +75,11 @@ export default function LoginScreen() {
             </View>
           </Formik>
 
-          {/* <View style={styles.textDiv}>
-            <Text style={[styles.textBasic, styles.textDesc]}>
-              Немає акаунту?
-            </Text>
-            <TouchableOpacity>
-              <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>
-                Зареєструватися
-              </Text>
-            </TouchableOpacity>
-          </View> */}
           <View style={styles.textDiv}>
             <TouchableOpacity>
               <Text style={[styles.textBasic, styles.textDesc]}>
                 Немає акаунту?
-              </Text>
-
-              <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>
-                Зареєструватися
+                <Text style={styles.textReg}> Зареєструватися</Text>
               </Text>
             </TouchableOpacity>
           </View>
@@ -163,7 +150,7 @@ const styles = StyleSheet.create({
   },
   textReg: {
     textDecorationLine: "underline",
-    marginLeft: 4,
+    marginLeft: 10,
   },
   toShow: {
     position: "absolute",
