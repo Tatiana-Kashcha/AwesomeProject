@@ -6,6 +6,10 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  TouchableWithoutFeedback, // імпорт компонента обгортки
+  Keyboard, // імпорт компонента клавіатури
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { Formik } from "formik";
 import { Ionicons } from "@expo/vector-icons";

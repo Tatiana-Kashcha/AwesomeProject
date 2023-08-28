@@ -6,6 +6,10 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  TouchableWithoutFeedback, // імпорт компонента обгортки
+  Keyboard, // імпорт компонента клавіатури
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { Formik } from "formik";
 
@@ -14,49 +18,87 @@ export default function LoginScreen() {
   const [hidePass, setHidePass] = useState(true);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.thumb}>
-        <Text style={styles.textHeader}>Увійти</Text>
-        <Formik>
-          <View style={styles.form} behavior={Platform.OS == "ios" ? "padding" : "height"}>
-            <TextInput
-              placeholder="Адреса електронної пошти"
-              placeholderTextColor={'#BDBDBD'}
-              style={[styles.input, styles.textBasic, styles.inputFirst, focus.FocusedItem === "email" ? styles.inputOnFocus : styles.inputOnBlur]}
-              onFocus={() => setFocus({FocusedItem: "email"})}
-              onBlur={() => setFocus({FocusedItem: ""})}
-            />
-            <TextInput
-              placeholder="Пароль"
-              secureTextEntry={hidePass ? true : false}
-              autoCapitalize="none"
-              placeholderTextColor={'#BDBDBD'}
-              style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
-              onFocus={() => setFocus({FocusedItem: "password"})}
-              onBlur={() => setFocus({FocusedItem: ""})}
-            />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.thumb}>
+          <Text style={styles.textHeader}>Увійти</Text>
+          <Formik>
+            <View style={styles.form}>
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Адреса електронної пошти"
+                  placeholderTextColor={"#BDBDBD"}
+                  style={[
+                    styles.input,
+                    styles.textBasic,
+                    styles.inputFirst,
+                    focus.FocusedItem === "email"
+                      ? styles.inputOnFocus
+                      : styles.inputOnBlur,
+                  ]}
+                  onFocus={() => setFocus({ FocusedItem: "email" })}
+                  onBlur={() => setFocus({ FocusedItem: "" })}
+                />
+                <TextInput
+                  placeholder="Пароль"
+                  secureTextEntry={hidePass ? true : false}
+                  autoCapitalize="none"
+                  placeholderTextColor={"#BDBDBD"}
+                  style={[
+                    styles.input,
+                    styles.textBasic,
+                    focus.FocusedItem === "password"
+                      ? styles.inputOnFocus
+                      : styles.inputOnBlur,
+                  ]}
+                  onFocus={() => setFocus({ FocusedItem: "password" })}
+                  onBlur={() => setFocus({ FocusedItem: "" })}
+                />
 
-            <TouchableOpacity >
-              <Text 
-              style={[styles.textBasic, styles.textDesc, styles.toShow]} 
-              onPress={() => setHidePass(!hidePass)}>Показати
+                <TouchableOpacity>
+                  <Text
+                    style={[styles.textBasic, styles.textDesc, styles.toShow]}
+                    onPress={() => setHidePass(!hidePass)}
+                  >
+                    Показати
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button}>
+                  <Text style={[styles.textBasic, styles.textButton]}>
+                    Увійти
+                  </Text>
+                </TouchableOpacity>
+              </KeyboardAvoidingView>
+            </View>
+          </Formik>
+
+          {/* <View style={styles.textDiv}>
+            <Text style={[styles.textBasic, styles.textDesc]}>
+              Немає акаунту?
+            </Text>
+            <TouchableOpacity>
+              <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>
+                Зареєструватися
               </Text>
             </TouchableOpacity>
+          </View> */}
+          <View style={styles.textDiv}>
+            <TouchableOpacity>
+              <Text style={[styles.textBasic, styles.textDesc]}>
+                Немає акаунту?
+              </Text>
 
-            <TouchableOpacity style={styles.button}>
-              <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
+              <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>
+                Зареєструватися
+              </Text>
             </TouchableOpacity>
           </View>
-        </Formik>
-
-        <View style={styles.textDiv}>
-          <Text style={[styles.textBasic, styles.textDesc]}>Немає акаунту?</Text>
-          <TouchableOpacity>
-          <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>Зареєструватися</Text>
-          </TouchableOpacity>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -95,13 +137,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 16,
   },
-  inputOnFocus: { 
+  inputOnFocus: {
     backgroundColor: "#fff",
-    borderColor: '#FF6C00',
+    borderColor: "#FF6C00",
   },
-  inputOnBlur: { 
+  inputOnBlur: {
     backgroundColor: "#f6f6f6",
-    borderColor: '#E8E8E8' 
+    borderColor: "#E8E8E8",
   },
   inputFirst: {
     marginTop: 0,
