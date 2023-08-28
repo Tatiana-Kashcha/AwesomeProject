@@ -20,13 +20,14 @@ export default function LoginScreen() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
-        <View style={styles.thumb}>
-          <Text style={styles.textHeader}>Увійти</Text>
-          <Formik>
-            <View style={styles.form}>
-              <KeyboardAvoidingView
-                behavior={Platform.OS == "ios" ? "padding" : "height"}
-              >
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={-100}
+        >
+          <View style={styles.thumb}>
+            <Text style={styles.textHeader}>Увійти</Text>
+            <Formik>
+              <View style={styles.form}>
                 <TextInput
                   placeholder="Адреса електронної пошти"
                   placeholderTextColor={"#BDBDBD"}
@@ -71,19 +72,19 @@ export default function LoginScreen() {
                     Увійти
                   </Text>
                 </TouchableOpacity>
-              </KeyboardAvoidingView>
-            </View>
-          </Formik>
+              </View>
+            </Formik>
 
-          <View style={styles.textDiv}>
-            <TouchableOpacity>
-              <Text style={[styles.textBasic, styles.textDesc]}>
-                Немає акаунту?
-                <Text style={styles.textReg}> Зареєструватися</Text>
-              </Text>
-            </TouchableOpacity>
+            <View style={styles.textDiv}>
+              <TouchableOpacity>
+                <Text style={[styles.textBasic, styles.textDesc]}>
+                  Немає акаунту?
+                  <Text style={styles.textReg}> Зареєструватися</Text>
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
