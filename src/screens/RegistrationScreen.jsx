@@ -17,62 +17,118 @@ import { Ionicons } from "@expo/vector-icons";
 export default function RegistrationScreen() {
   const [focus, setFocus] = useState("");
   const [hidePass, setHidePass] = useState(true);
+  // const [login, setLogin] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.thumb}>
-        <View style={styles.avatar}>
-          <Ionicons name="add-circle-outline" size={35} style={styles.iconAdd} />
-        </View>
-        <Text style={styles.textHeader}>Реєстрація</Text>
-        <Formik>
-          <View style={styles.form} behavior={Platform.OS == "ios" ? "padding" : "height"}>
-            <TextInput
-              placeholder="Логін"
-              placeholderTextColor={'#BDBDBD'}
-              style={[styles.input, styles.textBasic, styles.inputFirst, focus.FocusedItem === "login" ? styles.inputOnFocus : styles.inputOnBlur]}
-              onFocus={() => setFocus({FocusedItem: "login"})}
-              onBlur={() => setFocus({FocusedItem: ""})}
-            />
-            <TextInput
-              placeholder="Адреса електронної пошти"
-              placeholderTextColor={'#BDBDBD'}
-              style={[styles.input, styles.textBasic, focus.FocusedItem === "email" ? styles.inputOnFocus : styles.inputOnBlur]}
-              onFocus={() => setFocus({FocusedItem: "email"})}
-              onBlur={() => setFocus({FocusedItem: ""})}
-            />
-            <TextInput
-              placeholder="Пароль"
-              secureTextEntry={hidePass ? true : false}
-              autoCapitalize="none"
-              placeholderTextColor={'#BDBDBD'}
-              style={[styles.input, styles.textBasic, focus.FocusedItem === "password" ? styles.inputOnFocus : styles.inputOnBlur]}
-              onFocus={() => setFocus({FocusedItem: "password"})}
-              onBlur={() => setFocus({FocusedItem: ""})}
-            />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={-150}
+        >
+          <View style={styles.thumb}>
+            <View style={styles.avatar}>
+              <Ionicons
+                name="add-circle-outline"
+                size={35}
+                style={styles.iconAdd}
+              />
+            </View>
+            <Text style={styles.textHeader}>Реєстрація</Text>
+            <Formik
+              initialValues={{ login: "", email: "", password: "" }}
+              onSubmit={(values, action) => {
+                console.log(values);
+                action.resetForm();
+              }}
+            >
+              {" "}
+              {(props) => (
+                <View style={styles.form}>
+                  <TextInput
+                    value={props.values.login}
+                    onChangeText={props.handleCange("login")}
+                    placeholder="Логін"
+                    placeholderTextColor={"#BDBDBD"}
+                    style={[
+                      styles.input,
+                      styles.textBasic,
+                      styles.inputFirst,
+                      focus.FocusedItem === "login" && styles.inputOnFocus,
+                    ]}
+                    onFocus={() => setFocus({ FocusedItem: "login" })}
+                    onBlur={() => setFocus({ FocusedItem: "" })}
+                  />
+                  <TextInput
+                    value={props.values.email}
+                    onChangeText={props.handleCange("email")}
+                    placeholder="Адреса електронної пошти"
+                    placeholderTextColor={"#BDBDBD"}
+                    style={[
+                      styles.input,
+                      styles.textBasic,
+                      focus.FocusedItem === "email" && styles.inputOnFocus,
+                    ]}
+                    onFocus={() => setFocus({ FocusedItem: "email" })}
+                    onBlur={() => setFocus({ FocusedItem: "" })}
+                  />
+                  <View style={styles.thumbToShow}>
+                    <TextInput
+                      value={props.values.password}
+                      onChangeText={props.handleCange("password")}
+                      placeholder="Пароль"
+                      secureTextEntry={hidePass ? true : false}
+                      autoCapitalize="none"
+                      placeholderTextColor={"#BDBDBD"}
+                      style={[
+                        styles.input,
+                        styles.textBasic,
+                        focus.FocusedItem === "password" && styles.inputOnFocus,
+                      ]}
+                      onFocus={() => setFocus({ FocusedItem: "password" })}
+                      onBlur={() => setFocus({ FocusedItem: "" })}
+                    />
 
-            <TouchableOpacity >
-            <Text 
-              style={[styles.textBasic, styles.textDesc, styles.toShow]} 
-              onPress={() => setHidePass(!hidePass)}>Показати
-              </Text>
-            </TouchableOpacity>
+                    <TouchableOpacity>
+                      <Text
+                        style={[
+                          styles.textBasic,
+                          styles.textDesc,
+                          styles.toShow,
+                        ]}
+                        onPress={() => setHidePass(!hidePass)}
+                      >
+                        Показати
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
 
-            <TouchableOpacity style={styles.button}>
-              <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
-            </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={props.handleSubmit}
+                  >
+                    <Text style={[styles.textBasic, styles.textButton]}>
+                      Зареєструватися
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </Formik>
+
+            <View style={styles.textDiv}>
+              <TouchableOpacity>
+                <Text style={[styles.textBasic, styles.textDesc]}>
+                  Вже є акаунт?
+                  <Text style={styles.textReg}> Увійти</Text>
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </Formik>
-
-        <View style={styles.textDiv}>
-          <Text style={[styles.textBasic, styles.textDesc]}>Вже є акаунт?</Text>
-          <TouchableOpacity>
-          <Text style={[styles.textBasic, styles.textDesc, styles.textReg]}>Увійти</Text>
-          </TouchableOpacity>
-        </View>
-
-      </View>
-    </SafeAreaView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -118,17 +174,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     width: "100%",
+    backgroundColor: "#f6f6f6",
+    borderColor: "#E8E8E8",
     borderWidth: 1,
     borderRadius: 10,
     marginTop: 16,
   },
-  inputOnFocus: { 
+  inputOnFocus: {
     backgroundColor: "#fff",
-    borderColor: '#FF6C00',
-  },
-  inputOnBlur: { 
-    backgroundColor: "#f6f6f6",
-    borderColor: '#E8E8E8' 
+    borderColor: "#FF6C00",
   },
   inputFirst: {
     marginTop: 0,
@@ -149,6 +203,9 @@ const styles = StyleSheet.create({
   },
   textDesc: {
     color: "#1B4371",
+  },
+  thumbToShow: {
+    position: "relative",
   },
   toShow: {
     position: "absolute",

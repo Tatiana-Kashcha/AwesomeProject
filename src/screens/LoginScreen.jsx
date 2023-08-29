@@ -22,7 +22,7 @@ export default function LoginScreen() {
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView
           behavior={Platform.OS == "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={-100}
+          keyboardVerticalOffset={-90}
         >
           <View style={styles.thumb}>
             <Text style={styles.textHeader}>Увійти</Text>
@@ -35,37 +35,35 @@ export default function LoginScreen() {
                     styles.input,
                     styles.textBasic,
                     styles.inputFirst,
-                    focus.FocusedItem === "email"
-                      ? styles.inputOnFocus
-                      : styles.inputOnBlur,
+                    focus.FocusedItem === "email" && styles.inputOnFocus,
                   ]}
                   onFocus={() => setFocus({ FocusedItem: "email" })}
                   onBlur={() => setFocus({ FocusedItem: "" })}
                 />
-                <TextInput
-                  placeholder="Пароль"
-                  secureTextEntry={hidePass ? true : false}
-                  autoCapitalize="none"
-                  placeholderTextColor={"#BDBDBD"}
-                  style={[
-                    styles.input,
-                    styles.textBasic,
-                    focus.FocusedItem === "password"
-                      ? styles.inputOnFocus
-                      : styles.inputOnBlur,
-                  ]}
-                  onFocus={() => setFocus({ FocusedItem: "password" })}
-                  onBlur={() => setFocus({ FocusedItem: "" })}
-                />
+                <View style={styles.thumbToShow}>
+                  <TextInput
+                    placeholder="Пароль"
+                    secureTextEntry={hidePass ? true : false}
+                    autoCapitalize="none"
+                    placeholderTextColor={"#BDBDBD"}
+                    style={[
+                      styles.input,
+                      styles.textBasic,
+                      focus.FocusedItem === "password" && styles.inputOnFocus,
+                    ]}
+                    onFocus={() => setFocus({ FocusedItem: "password" })}
+                    onBlur={() => setFocus({ FocusedItem: "" })}
+                  />
 
-                <TouchableOpacity>
-                  <Text
-                    style={[styles.textBasic, styles.textDesc, styles.toShow]}
-                    onPress={() => setHidePass(!hidePass)}
-                  >
-                    Показати
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Text
+                      style={[styles.textBasic, styles.textDesc, styles.toShow]}
+                      onPress={() => setHidePass(!hidePass)}
+                    >
+                      Показати
+                    </Text>
+                  </TouchableOpacity>
+                </View>
 
                 <TouchableOpacity style={styles.button}>
                   <Text style={[styles.textBasic, styles.textButton]}>
@@ -121,6 +119,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     width: "100%",
+    backgroundColor: "#f6f6f6",
+    borderColor: "#E8E8E8",
     borderWidth: 1,
     borderRadius: 10,
     marginTop: 16,
@@ -128,10 +128,6 @@ const styles = StyleSheet.create({
   inputOnFocus: {
     backgroundColor: "#fff",
     borderColor: "#FF6C00",
-  },
-  inputOnBlur: {
-    backgroundColor: "#f6f6f6",
-    borderColor: "#E8E8E8",
   },
   inputFirst: {
     marginTop: 0,
@@ -152,6 +148,9 @@ const styles = StyleSheet.create({
   textReg: {
     textDecorationLine: "underline",
     marginLeft: 10,
+  },
+  thumbToShow: {
+    position: "relative",
   },
   toShow: {
     position: "absolute",
