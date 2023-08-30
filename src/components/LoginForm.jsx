@@ -8,13 +8,13 @@ import {
 } from "react-native";
 import { Formik } from "formik";
 
-export default function RegistrationForm() {
+export default function LoginForm() {
   const [focus, setFocus] = useState("");
   const [hidePass, setHidePass] = useState(true);
 
   return (
     <Formik
-      initialValues={{ login: "", email: "", password: "" }}
+      initialValues={{ email: "", password: "" }}
       onSubmit={(values, action) => {
         console.log(values);
         action.resetForm();
@@ -23,20 +23,6 @@ export default function RegistrationForm() {
       {(props) => (
         <View style={styles.form}>
           <TextInput
-            value={props.values.login}
-            onChangeText={props.handleChange("login")}
-            placeholder="Логін"
-            placeholderTextColor={"#BDBDBD"}
-            style={[
-              styles.input,
-              styles.textBasic,
-              styles.inputFirst,
-              focus.FocusedItem === "login" && styles.inputOnFocus,
-            ]}
-            onFocus={() => setFocus({ FocusedItem: "login" })}
-            onBlur={() => setFocus({ FocusedItem: "" })}
-          />
-          <TextInput
             value={props.values.email}
             onChangeText={props.handleChange("email")}
             placeholder="Адреса електронної пошти"
@@ -44,6 +30,7 @@ export default function RegistrationForm() {
             style={[
               styles.input,
               styles.textBasic,
+              styles.inputFirst,
               focus.FocusedItem === "email" && styles.inputOnFocus,
             ]}
             onFocus={() => setFocus({ FocusedItem: "email" })}
@@ -77,9 +64,7 @@ export default function RegistrationForm() {
           </View>
 
           <TouchableOpacity style={styles.button} onPress={props.handleSubmit}>
-            <Text style={[styles.textBasic, styles.textButton]}>
-              Зареєструватися
-            </Text>
+            <Text style={[styles.textBasic, styles.textButton]}>Увійти</Text>
           </TouchableOpacity>
         </View>
       )}
