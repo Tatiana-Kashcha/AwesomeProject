@@ -23,12 +23,11 @@ export default function RegistrationForm() {
         action.resetForm();
       }}
     >
-      {" "}
       {(props) => (
         <View style={styles.form}>
           <TextInput
-            value={props.values.login}
-            onChangeText={props.handleCange("login")}
+            // value={props.values.login}
+            //   onChangeText={props.handleCange("login")}
             placeholder="Логін"
             placeholderTextColor={"#BDBDBD"}
             style={[
@@ -41,8 +40,8 @@ export default function RegistrationForm() {
             onBlur={() => setFocus({ FocusedItem: "" })}
           />
           <TextInput
-            value={props.values.email}
-            onChangeText={props.handleCange("email")}
+            // value={props.values.email}
+            //   onChangeText={props.handleCange("email")}
             placeholder="Адреса електронної пошти"
             placeholderTextColor={"#BDBDBD"}
             style={[
@@ -55,8 +54,8 @@ export default function RegistrationForm() {
           />
           <View style={styles.thumbToShow}>
             <TextInput
-              value={props.values.password}
-              onChangeText={props.handleCange("password")}
+              //   value={props.values.password}
+              // onChangeText={props.handleCange("password")}
               placeholder="Пароль"
               secureTextEntry={hidePass ? true : false}
               autoCapitalize="none"

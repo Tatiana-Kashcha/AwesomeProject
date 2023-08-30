@@ -5,8 +5,8 @@ import {
   View,
   SafeAreaView,
   TouchableOpacity,
-  TouchableWithoutFeedback, // імпорт компонента обгортки
-  Keyboard, // імпорт компонента клавіатури
+  TouchableWithoutFeedback,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
@@ -31,7 +31,7 @@ export default function RegistrationScreen() {
             </View>
             <Text style={styles.textHeader}>Реєстрація</Text>
 
-            {/* <RegistrationForm /> */}
+            <RegistrationForm />
 
             <View style={styles.textDiv}>
               <TouchableOpacity>
