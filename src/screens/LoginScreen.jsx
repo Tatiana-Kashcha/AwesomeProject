@@ -75,6 +75,5 @@ const styles = StyleSheet.create({
   },
   textDiv: {
     marginTop: 10,
-    flexDirection: "row",
   },
 });
