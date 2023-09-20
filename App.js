@@ -1,10 +1,8 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground } from "react-native";
 import { useFonts } from "expo-font";
-import RegistrationScreen from "./src/screens/RegistrationScreen";
-import LoginScreen from "./src/screens/LoginScreen";
-import background from "./src/assets/PhotoBG.png";
+import { NavigationContainer } from "@react-navigation/native";
+import MainNavigator from "./src/routes/MainNavigator";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,25 +15,8 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={background}
-        resizeMode="cover"
-        style={styles.background}
-      >
-        <StatusBar style="auto" />
-        <RegistrationScreen />
-        {/* <LoginScreen /> */}
-      </ImageBackground>
-    </View>
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  background: {
-    flex: 1,
-  },
-});

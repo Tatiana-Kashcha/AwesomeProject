@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -11,30 +12,37 @@ import {
   Platform,
 } from "react-native";
 import LoginForm from "../components/LoginForm";
+import { Background } from "../components/Background";
 
 export default function LoginScreen() {
+  const navigation = useNavigation();
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS == "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={-90}
-        >
-          <View style={styles.thumb}>
-            <Text style={styles.textHeader}>Увійти</Text>
+        <Background>
+          <KeyboardAvoidingView
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
+            keyboardVerticalOffset={-90}
+          >
+            <View style={styles.thumb}>
+              <Text style={styles.textHeader}>Увійти</Text>
 
-            <LoginForm />
+              <LoginForm />
 
-            <View style={styles.textDiv}>
-              <TouchableOpacity>
-                <Text style={[styles.textBasic, styles.textDesc]}>
-                  Немає акаунту?
-                  <Text style={styles.textReg}> Зареєструватися</Text>
-                </Text>
-              </TouchableOpacity>
+              <View style={styles.textDiv}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Registration")}
+                >
+                  <Text style={[styles.textBasic, styles.textDesc]}>
+                    Немає акаунту?
+                    <Text style={styles.textReg}> Зареєструватися</Text>
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
+        </Background>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
@@ -43,7 +51,6 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
   },
   thumb: {
     backgroundColor: "#fff",

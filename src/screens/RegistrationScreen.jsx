@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -12,37 +13,42 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import RegistrationForm from "../components/RegistrationForm";
+import { Background } from "../components/Background";
 
 export default function RegistrationScreen() {
+  const navigation = useNavigation();
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS == "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={-150}
-        >
-          <View style={styles.thumb}>
-            <View style={styles.avatar}>
-              <Ionicons
-                name="add-circle-outline"
-                size={35}
-                style={styles.iconAdd}
-              />
-            </View>
-            <Text style={styles.textHeader}>Реєстрація</Text>
+        <Background>
+          <KeyboardAvoidingView
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
+            keyboardVerticalOffset={-150}
+          >
+            <View style={styles.thumb}>
+              <View style={styles.avatar}>
+                <Ionicons
+                  name="add-circle-outline"
+                  size={35}
+                  style={styles.iconAdd}
+                />
+              </View>
+              <Text style={styles.textHeader}>Реєстрація</Text>
 
-            <RegistrationForm />
+              <RegistrationForm />
 
-            <View style={styles.textDiv}>
-              <TouchableOpacity>
-                <Text style={[styles.textBasic, styles.textDesc]}>
-                  Вже є акаунт?
-                  <Text style={styles.textReg}> Увійти</Text>
-                </Text>
-              </TouchableOpacity>
+              <View style={styles.textDiv}>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                  <Text style={[styles.textBasic, styles.textDesc]}>
+                    Вже є акаунт?
+                    <Text style={styles.textReg}> Увійти</Text>
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
+        </Background>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
@@ -51,7 +57,6 @@ export default function RegistrationScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
   },
   avatar: {
     width: 120,
